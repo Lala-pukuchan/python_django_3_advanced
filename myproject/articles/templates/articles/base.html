@@ -92,10 +92,11 @@
     </style>
 </head>
 <body>
+{% load i18n %}
 <div class="container">
     <div class="site-header">
-        <h1 class="site-title">Articles</h1>
-        <div class="site-subtitle">Share your writings</div>
+        <h1 class="site-title">{% trans "Articles" %}</h1>
+        <div class="site-subtitle">{% trans "Share your writings" %}</div>
         <div class="language-selector">
             <a href="/en/articles/">English</a>
             <span> | </span>
@@ -111,28 +112,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'articles' %}">Articles</a>
+          <a class="nav-link" href="{% url 'articles' %}">{% trans "Articles" %}</a>
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'favourites' %}">Favourites</a>
+            <a class="nav-link" href="{% url 'favourites' %}">{% trans "Favourites" %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'publications' %}">Publications</a>
+            <a class="nav-link" href="{% url 'publications' %}">{% trans "Publications" %}</a>
           </li>
         {% endif %}
       </ul>
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <span class="navbar-text">Logged as {{ user.username }}</span>
+            <span class="navbar-text">{% trans "Logged as" %} {{ user.username }}</span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
+            <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
           </li>
           <li class="nav-item">
             {% if login_form %}
@@ -140,7 +141,7 @@
                 {% csrf_token %}
                 {{ login_form.username }}
                 {{ login_form.password }}
-                <button class="btn btn-sm btn-light" type="submit">Login</button>
+                <button class="btn btn-sm btn-light" type="submit">{% trans "Login" %}</button>
               </form>
               {% if login_form.errors %}
                 <div class="login-error">

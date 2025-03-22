@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-22 11:01+0000\n"
+"POT-Creation-Date: 2025-03-22 15:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,108 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: articles/templates/articles/article_list.html:6
-msgid "All Articles"
-msgstr ""
+#: articles/templates/articles/add_favourite_form.html:27
+#: articles/templates/articles/article_detail.html:16
+msgid "Add to Favourites"
+msgstr "お気に入りに追加"
 
+#: articles/templates/articles/add_favourite_form.html:28
+msgid "Are you sure you want to add this article to your favourites?"
+msgstr "この記事をお気に入りに追加してもよろしいですか？"
+
+#: articles/templates/articles/add_favourite_form.html:42
+msgid "Yes, add it"
+msgstr "はい、追加します"
+
+#: articles/templates/articles/add_favourite_form.html:43
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: articles/templates/articles/article_detail.html:4
+msgid "Article Detail"
+msgstr "記事の詳細"
+
+#: articles/templates/articles/article_detail.html:6
 #: articles/templates/articles/article_list.html:10
 msgid "Title"
-msgstr ""
+msgstr "タイトル"
 
+#: articles/templates/articles/article_detail.html:7
 #: articles/templates/articles/article_list.html:11
 msgid "Author"
-msgstr ""
+msgstr "著者"
 
+#: articles/templates/articles/article_detail.html:8
 #: articles/templates/articles/article_list.html:12
 msgid "Created"
-msgstr ""
+msgstr "作成日時"
+
+#: articles/templates/articles/article_detail.html:9
+#: articles/templates/articles/article_list.html:14
+msgid "Synopsis"
+msgstr "概要"
+
+#: articles/templates/articles/article_detail.html:10
+msgid "Content"
+msgstr "本文"
+
+#: articles/templates/articles/article_list.html:6
+msgid "All Articles"
+msgstr "すべての記事"
 
 #: articles/templates/articles/article_list.html:13
-msgid "Synopsis"
-msgstr ""
+msgid "Published for"
+msgstr "公開期間"
+
+#: articles/templates/articles/base.html:98
+#: articles/templates/articles/base.html:115
+msgid "Articles"
+msgstr "記事一覧"
+
+#: articles/templates/articles/base.html:99
+msgid "Share your writings"
+msgstr "あなたの文章を共有しよう"
+
+#: articles/templates/articles/base.html:119
+msgid "Favourites"
+msgstr "お気に入り"
+
+#: articles/templates/articles/base.html:122
+msgid "Publications"
+msgstr "投稿一覧"
+
+#: articles/templates/articles/base.html:129
+msgid "Logged as"
+msgstr "ログイン中："
+
+#: articles/templates/articles/base.html:132
+msgid "Logout"
+msgstr "ログアウト"
+
+#: articles/templates/articles/base.html:136
+msgid "Register"
+msgstr "新規登録"
+
+#: articles/templates/articles/base.html:144
+msgid "Login"
+msgstr "ログイン"
+
+#: articles/templates/articles/publications_list.html:3
+msgid "My Publications"
+msgstr "マイ投稿"
+
+#: articles/templates/articles/publications_list.html:4
+msgid "Publish New Article"
+msgstr "新規記事を投稿"
+
+#: articles/templates/articles/publications_list.html:8
+msgid "Detail"
+msgstr "詳細"
+
+#: articles/templates/articles/publications_list.html:15
+msgid "View"
+msgstr "表示"
+
+#: articles/templates/articles/favourites_list.html:3
+msgid "My Favourites"
+msgstr "マイお気に入り"

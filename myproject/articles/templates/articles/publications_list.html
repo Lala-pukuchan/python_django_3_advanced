@@ -1,16 +1,17 @@
 {% extends 'articles/base.html' %}
+{% load i18n %}
 {% block content %}
-<h2>My Publications</h2>
-<a href="{% url 'publish' %}" class="btn btn-primary">Publish New Article</a>
+<h2>{% trans "My Publications" %}</h2>
+<a href="{% url 'publish' %}" class="btn btn-primary">{% trans "Publish New Article" %}</a>
 <br><br>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Synopsis</th>
-      <th>Created</th>
-      <th>Detail</th>
+      <th>{% trans "Title" %}</th>
+      <th>{% trans "Synopsis" %}</th>
+      <th>{% trans "Created" %}</th>
+      <th>{% trans "Detail" %}</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +21,7 @@
       <td>{{ article.synopsis|slice:":20" }}...</td>
       <td>{{ article.created }}</td>
       <td>
-        <a href="{% url 'detail' article.pk %}">View</a>
+        <a href="{% url 'detail' article.pk %}">{% trans "View" %}</a>
       </td>
     </tr>
     {% endfor %}
