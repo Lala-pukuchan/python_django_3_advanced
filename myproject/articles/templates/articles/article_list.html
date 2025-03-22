@@ -17,17 +17,13 @@
   <tbody>
     {% for article in articles %}
     <tr>
-      <td>{{ article.title }}</td>
+      <td>
+        <a href="{% url 'detail' pk=article.pk %}">{{ article.title }}</a>
+      </td>
       <td>{{ article.author.username }}</td>
       <td>{{ article.created }}</td>
       <td>{{ article.created|timesince }}</td>
-      <td>
-        {% if article.synopsis|length > 20 %}
-          {{ article.synopsis|slice:":20" }}...
-        {% else %}
-          {{ article.synopsis }}
-        {% endif %}
-      </td>
+      <td>{{ article.synopsis|truncatechars:20 }}</td>
     </tr>
     {% endfor %}
   </tbody>

@@ -187,18 +187,17 @@ class AddFavouriteView(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
 
     def form_valid(self, form):
-        # URLのpkからArticleを取得
         article_id = self.kwargs['pk']
+        # 重複チェック
+        if UserFavouriteArticle.objects.filter(
+            user=self.request.user,
+            article_id=article_id
+        ).exists():
+            form.add_error(None, "This article is already in your favourites.")
+            return self.form_invalid(form)
+        
+        # 重複がなければ保存処理を続行
         article_obj = Article.objects.get(pk=article_id)
-        # user と article を紐付け
         form.instance.user = self.request.user
         form.instance.article = article_obj
         return super().form_valid(form)
-
-    # 同じ記事を重複登録させたくない場合はバリデーションでチェックしてもOK
-    def post(self, request, *args, **kwargs):
-        article_id = self.kwargs['pk']
-        if UserFavouriteArticle.objects.filter(user=request.user, article_id=article_id).exists():
-            # すでにお気に入り済みなら弾く例
-            return redirect('favourites')
-        return super().post(request, *args, **kwargs)
