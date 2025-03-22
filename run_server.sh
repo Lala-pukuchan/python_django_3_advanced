@@ -15,6 +15,10 @@ cd myproject
 # db migration
 python manage.py makemigrations
 python manage.py migrate
+# translation
+#python manage.py makemessages -l en
+#python manage.py makemessages -l ja
+django-admin compilemessages
 # test
 python manage.py test
 # run server
