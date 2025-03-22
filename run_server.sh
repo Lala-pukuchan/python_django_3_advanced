@@ -18,7 +18,7 @@ python manage.py migrate
 # translation
 #python manage.py makemessages -l en
 #python manage.py makemessages -l ja
-django-admin compilemessages
+python manage.py compilemessages
 # test
 python manage.py test
 # run server
