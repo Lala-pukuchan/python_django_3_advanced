@@ -1,0 +1,29 @@
+{% extends 'articles/base.html' %}
+{% block content %}
+<h2>My Publications</h2>
+<a href="{% url 'publish' %}" class="btn btn-primary">Publish New Article</a>
+<br><br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Synopsis</th>
+      <th>Created</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+    <tr>
+      <td>{{ article.title }}</td>
+      <td>{{ article.synopsis|slice:":20" }}...</td>
+      <td>{{ article.created }}</td>
+      <td>
+        <a href="{% url 'detail' article.pk %}">View</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

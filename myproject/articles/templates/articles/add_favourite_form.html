@@ -1,0 +1,10 @@
+{% extends 'articles/base.html' %}
+{% block content %}
+<!-- 何も入力項目を表示しない例 -->
+<h2>Add to Favourites</h2>
+<p>Are you sure you want to add this article to your favourites?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, add it</button>
+</form>
+{% endblock %}

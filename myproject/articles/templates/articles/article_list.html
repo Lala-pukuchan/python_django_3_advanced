@@ -1,0 +1,33 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+{% load tz %}   <!-- time表示やフィルタが欲しければ -->
+{% load i18n %}   <!-- 翻訳用のタグをロード -->
+{% block content %}
+<h2>{% trans "All Articles" %}</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "Title" %}</th>
+      <th>{% trans "Author" %}</th>
+      <th>{% trans "Created" %}</th>
+      <th>{% trans "Synopsis" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+    <tr>
+      <td>{{ article.title }}</td>
+      <td>{{ article.author.username }}</td>
+      <td>{{ article.created }}</td>
+      <td>
+        {% if article.synopsis|length > 20 %}
+          {{ article.synopsis|slice:":20" }}...
+        {% else %}
+          {{ article.synopsis }}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

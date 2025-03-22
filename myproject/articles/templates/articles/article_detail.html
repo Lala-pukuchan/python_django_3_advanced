@@ -1,0 +1,18 @@
+{% extends 'articles/base.html' %}
+{% block content %}
+<h2>Article Detail</h2>
+
+<p><strong>Title:</strong> {{ article.title }}</p>
+<p><strong>Author:</strong> {{ article.author.username }}</p>
+<p><strong>Created:</strong> {{ article.created }}</p>
+<p><strong>Synopsis:</strong> {{ article.synopsis }}</p>
+<p><strong>Content:</strong> {{ article.content }}</p>
+
+<!-- お気に入り追加フォーム -->
+{% if user.is_authenticated %}
+  <form method="post" action="{% url 'add_favourite' article.pk %}">
+    {% csrf_token %}
+    <button type="submit">Add to Favourites</button>
+  </form>
+{% endif %}
+{% endblock %}
