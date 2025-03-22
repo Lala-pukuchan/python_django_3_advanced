@@ -15,6 +15,7 @@
             white-space: nowrap;
             display: inline-block;
             vertical-align: middle;
+            font-style: italic;
         }
         .navbar-text {
             display: flex;
@@ -27,15 +28,27 @@
             display: flex;
             align-items: center;
         }
+        .login-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 10px;
+        }
+        .login-form input {
+            width: 120px;
+        }
+        .login-error {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-
     <a class="navbar-brand" href="{% url 'home' %}">Home</a>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
       <li class="nav-item">
         <a class="nav-link" href="{% url 'articles' %}">Last Articles</a>
       </li>
@@ -51,23 +64,46 @@
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
         <li class="nav-item">
-          <span class="navbar-text">Logged as <span class="username-display" title="{{ user.username }}">{{ user.username }}</span></span>
+          <span class="navbar-text">Logged as<span style="width: 10px;"></span><span class="username-display" title="{{ user.username }}">{{ user.username }}</span></span>
         </li>
       {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'register' %}">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          {% if login_form %}
+            <form method="post" action="{% url 'login' %}" class="login-form">
+              {% csrf_token %}
+              {{ login_form.username }}
+              {{ login_form.password }}
+              <button class="btn btn-sm btn-primary" type="submit">Login</button>
+            </form>
+            {% if login_form.errors %}
+              <div class="login-error">
+                {% if login_form.non_field_errors %}
+                  {% for error in login_form.non_field_errors %}
+                    {{ error }}
+                  {% endfor %}
+                {% else %}
+                  {% for field, errors in login_form.errors.items %}
+                    {% if field != '__all__' %}
+                      {% for error in errors %}
+                        {{ error }}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endif %}
         </li>
       {% endif %}
     </ul>
+    <div style="width: 200px;">
+      <a href="/en/articles/">English</a>
+      | <a href="/ja/articles/">日本語</a>
+    </div>
   </div>
-  <div style="width: 200px;">
-    <a href="/en/articles/">English</a>
-     | <a href="/ja/articles/">日本語</a>
-  </div>
-  
 </nav>
 
 <div class="container mt-3">

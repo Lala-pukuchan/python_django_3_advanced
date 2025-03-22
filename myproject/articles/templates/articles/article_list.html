@@ -10,6 +10,7 @@
       <th>{% trans "Title" %}</th>
       <th>{% trans "Author" %}</th>
       <th>{% trans "Created" %}</th>
+      <th>{% trans "Published for" %}</th>
       <th>{% trans "Synopsis" %}</th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
       <td>{{ article.title }}</td>
       <td>{{ article.author.username }}</td>
       <td>{{ article.created }}</td>
+      <td>{{ article.created|timesince }}</td>
       <td>
         {% if article.synopsis|length > 20 %}
           {{ article.synopsis|slice:":20" }}...
