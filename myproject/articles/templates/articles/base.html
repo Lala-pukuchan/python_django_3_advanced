@@ -37,15 +37,8 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'register' %}">Register</a>
         </li>
-        <!-- メニューに直接ログインフォームを置く場合 (例) -->
         <li class="nav-item">
-          <form method="post" action="{% url 'login' %}" class="d-flex" style="margin: 0 10px;">
-            {% csrf_token %}
-            {{ form.username }} 
-            {{ form.password }}
-            <button class="btn btn-sm btn-primary" type="submit">Login</button>
-            <!-- ここにエラーを表示するときは適宜工夫する -->
-          </form>
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
       {% endif %}
     </ul>

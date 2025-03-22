@@ -22,8 +22,11 @@ class ArticleListView(ListView):
     """全 Article をテーブル表示(タイトル, 著者, 作成日時, synopsis など)
        ※ content だけは一覧で表示しない
     """
+    # used model is Article
     model = Article
+    # it will display article_list.html
     template_name = 'articles/article_list.html'
+    # the data will be stored in articles and can be accessed in the template
     context_object_name = 'articles'
 
     # 新しいもの順に並び替えたい場合:
@@ -35,14 +38,19 @@ class ArticleListView(ListView):
     # ※synopsis は課題で312字, テーブル表示など
 
 
+# LoginView is inherited from AuthenticationForm
+# username and password are the default fields
 class MyLoginView(LoginView):
     """ログイン画面 (Exercise 00)
        エラー時はテンプレート内でエラーを出す。
        成功時は 'home' にリダイレクトする。
     """
+    # display login_form.html
     template_name = 'articles/login_form.html'
+    # redirect to home if user is already authenticated
     redirect_authenticated_user = True
 
+    # when user is authenticated, redirect to home
     def get_success_url(self):
         return reverse('home')  # ログイン成功時: Home(= / ) へ
 
@@ -58,8 +66,11 @@ class PublicationsListView(LoginRequiredMixin, ListView):
     """ログイン中のユーザーが「自分が author の記事のみ」表示する
        fields: title, synopsis, created
     """
+    # model = Article  # これだけだと全記事が表示される
     model = Article
+    # it will display publications_list.html
     template_name = 'articles/publications_list.html'
+    # the data will be stored in articles and can be accessed in the template
     context_object_name = 'articles'
 
     login_url = reverse_lazy('login')  # ログインしていないときはここへ飛ばす
@@ -74,6 +85,7 @@ class ArticleDetailView(DetailView):
     """特定の記事(Article)の詳細を表示する (URLにpkを含む)
        fields: 全項目(title, author, created, synopsis, content)
     """
+    # get article queried by pk which is passed in the URL
     model = Article
     template_name = 'articles/article_detail.html'
     context_object_name = 'article'
