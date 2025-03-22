@@ -10,6 +10,7 @@
         .site-header {
             padding: 20px 0;
             background-color: white;
+            position: relative;
         }
         .site-title {
             font-size: 24px;
@@ -70,16 +71,18 @@
         }
         .language-selector {
             position: absolute;
-            top: -40px;
-            right: 15px;
+            top: 20px;
+            right: 0;
         }
         .language-selector a {
             color: #666;
             text-decoration: none;
             font-size: 14px;
+            padding: 5px;
         }
         .language-selector a:hover {
             color: #333;
+            text-decoration: underline;
         }
         .login-error {
             color: #dc3545;
@@ -90,14 +93,14 @@
 </head>
 <body>
 <div class="container">
-    <div class="language-selector">
-        <a href="/en/articles/">English</a>
-        <span> | </span>
-        <a href="/ja/articles/">日本語</a>
-    </div>
     <div class="site-header">
         <h1 class="site-title">Articles</h1>
         <div class="site-subtitle">Share your writings</div>
+        <div class="language-selector">
+            <a href="/en/articles/">English</a>
+            <span> | </span>
+            <a href="/ja/articles/">日本語</a>
+        </div>
     </div>
 </div>
 <nav class="navbar navbar-expand-lg">
