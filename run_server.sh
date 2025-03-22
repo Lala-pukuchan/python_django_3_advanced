@@ -19,3 +19,8 @@ python manage.py migrate
 python manage.py test
 # run server
 python manage.py runserver
+
+
+## initial data creation
+#python manage.py loaddata initial_data
+#cd myproject && python manage.py createsuperuser --username john_doe --email john@example.com
