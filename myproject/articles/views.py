@@ -91,6 +91,7 @@ class ArticleDetailView(DetailView):
     context_object_name = 'article'
 
 
+# when uer logs out, redirect to home
 class MyLogoutView(LogoutView):
     """ログアウト用: 成功したらHomeへ"""
     next_page = reverse_lazy('home')

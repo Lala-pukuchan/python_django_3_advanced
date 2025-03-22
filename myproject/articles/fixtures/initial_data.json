@@ -53,5 +53,21 @@
             "synopsis": "Working with Django forms and implementing form validation",
             "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
         }
+    },
+    {
+        "model": "articles.userfavouritearticle",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "article": 1
+        }
+    },
+    {
+        "model": "articles.userfavouritearticle",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "article": 2
+        }
     }
 ] 
